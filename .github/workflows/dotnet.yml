@@ -24,3 +24,5 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - name: Publish Builder
+      run: dotnet publish C:\Users\harutyun.mkrtchyan\projects\shoc-haar\Shoc.Builder\Shoc.Builder.csproj -c Release -o bin/published
