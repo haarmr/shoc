@@ -25,4 +25,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish Builder
-      run: dotnet publish Shoc.Builder\Shoc.Builder.csproj -c Release -o bin/published
+      run: dotnet publish Shoc.Builder/Shoc.Builder.csproj -c Release -o bin/published
