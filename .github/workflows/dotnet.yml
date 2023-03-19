@@ -25,4 +25,15 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish Builder
-      run: dotnet publish Shoc.Builder/Shoc.Builder.csproj -c Release -o bin/published
+      run: dotnet publish Shoc.Builder/Shoc.Builder.csproj -c Release -o Shoc.Builder/bin/Release/net6.0/publish/
+      
+    - name: Build Builder image
+      run: docker-compose build shoc-builder
+      
+    -name: List images
+      run: docker images
+      
+      
+      
+      
+      
