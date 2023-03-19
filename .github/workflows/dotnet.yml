@@ -9,9 +9,14 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  SHOC_PUBLIC_REGISTRY: ghcr.io
+  SHOC_PUBLIC_REPOSITORY: ${{ github.repository }}/public
+  SHOC_PUBLIC_VERSION: ${{ github.sha }}
+
 jobs:
   build:
-
+   
     runs-on: ubuntu-latest
 
     steps:
@@ -22,18 +27,23 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
+      
     - name: Build
       run: dotnet build --no-restore
+      
     - name: Publish Builder
       run: dotnet publish Shoc.Builder/Shoc.Builder.csproj -c Release -o Shoc.Builder/bin/Release/net6.0/publish/
-      
-    - name: Build Builder image
+    
+    - name: Build all images
       run: docker-compose build shoc-builder
       
-    - name: List images
-      run: docker images
-      
-      
-      
-      
+    - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: 
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+    - name: Build all images
+      run: docker-cmpose push shoc-builder
       
