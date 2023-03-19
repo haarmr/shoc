@@ -63,6 +63,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.SHOC_GHCR_TOKEN }}
 
+
     - name: Push all images
       run: docker-compose push $SHOC_PUBLIC_SERVICES
       
