@@ -32,7 +32,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '16'
-        cash: yarn
+        cache: 'yarn'
     
     - name: Restore dependencies
       run: dotnet restore
