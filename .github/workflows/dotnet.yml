@@ -30,7 +30,7 @@ jobs:
     - name: Build Builder image
       run: docker-compose build shoc-builder
       
-    -name: List images
+    - name: List images
       run: docker images
       
       
