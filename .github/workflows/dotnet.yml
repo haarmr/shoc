@@ -25,6 +25,7 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
+        
     - name: Restore dependencies
       run: dotnet restore
       
@@ -40,7 +41,7 @@ jobs:
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v2
       with:
-        registry: $SHOC_PUBLIC_REGISTRY
+        registry: ${{ github.env.SHOC_PUBLIC_REGISTRY }}
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
