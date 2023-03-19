@@ -11,7 +11,7 @@ on:
 
 env:
   SHOC_PUBLIC_REGISTRY: ghcr.io
-  SHOC_PUBLIC_REPOSITORY: ${{ github.repository }}
+  SHOC_PUBLIC_REPOSITORY: ${{ github.repository }}/public
   SHOC_PUBLIC_VERSION: ${{ github.sha }}
 
 jobs:
@@ -29,9 +29,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
       
-    - name: Build
-      run: dotnet build --no-restore
-      
     - name: Publish Builder
       run: dotnet publish Shoc.Builder/Shoc.Builder.csproj -c Release -o Shoc.Builder/bin/Release/net6.0/publish/
     
@@ -45,6 +42,6 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.SHOC_GHCR_TOKEN }}
 
-    - name: Build all images
+    - name: Push all images
       run: docker-compose push shoc-builder
       
