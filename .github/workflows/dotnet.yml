@@ -11,7 +11,7 @@ on:
 
 env:
   SHOC_PUBLIC_REGISTRY: ghcr.io
-  SHOC_PUBLIC_REPOSITORY: ${{ github.repository }}/public
+  SHOC_PUBLIC_REPOSITORY: ${{ github.repository }}
   SHOC_PUBLIC_VERSION: ${{ github.sha }}
 
 jobs:
