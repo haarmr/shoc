@@ -43,7 +43,7 @@ jobs:
       with:
         registry: ${{ env.SHOC_PUBLIC_REGISTRY }}
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.SHOC_GHCR_TOKEN }}
 
     - name: Build all images
       run: docker-compose push shoc-builder
