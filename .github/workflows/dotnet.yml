@@ -46,5 +46,5 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build all images
-      run: docker-cmpose push shoc-builder
+      run: docker-compose push shoc-builder
       
