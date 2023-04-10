@@ -54,7 +54,7 @@ jobs:
 
     - name: Publish Database Migrator
       run: dotnet publish Shoc.Database.Migrator/Shoc.Database.Migrator.csproj -c Release -o Shoc.Database.Migrator/bin/Release/net6.0/publish/
-  
+
     - name: Publish Shoc Ui
       run: yarn --cwd Shoc.Ui/ build
   
